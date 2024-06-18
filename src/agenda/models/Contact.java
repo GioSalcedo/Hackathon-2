@@ -27,6 +27,20 @@ public class Contact {
         this.phone = phone;
     }
 
+    //Metodo para agregar contacto
+    public boolean equals (agenda.Contact c){
+        if(this.name.equalsIgnoreCase(c.getName())){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", phone=" + phone +
+                '}';
+    }
     //    public void removeContact(String name) {
 //        Contact contact = findContact(name);
 //        if (contact != null) {
