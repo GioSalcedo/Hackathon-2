@@ -1,4 +1,4 @@
-package agenda;
+package agenda.models;
 
 public class Contact {
     private String name;
