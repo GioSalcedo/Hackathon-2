@@ -11,6 +11,8 @@ public class Contact {
         this.name = name;
         this.phone = phone;
     }
+
+    // Getters y setters
     public String getName() {
         return name;
     }
@@ -27,35 +29,10 @@ public class Contact {
         this.phone = phone;
     }
 
-    //Metodo para agregar contacto
-    public boolean equals (agenda.Contact c){
-        if(this.name.equalsIgnoreCase(c.getName())){
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public String toString() {
         return "name='" + name + '\'' +
                 ", phone=" + phone +
                 '}';
     }
-    //    public void removeContact(String name) {
-//        Contact contact = findContact(name);
-//        if (contact != null) {
-//            contacts.remove(contact);
-//            System.out.println("Contacto eliminado.");
-//        } else {
-//            System.out.println("Contacto no encontrado.");
-//        }
-//    }
-//
-//    public boolean agendaFull() {
-//        return contacts.size() >= maxSize;
-//    }
-//
-//    public int freeSpace() {
-//        return maxSize - contacts.size();
-//    }
 }

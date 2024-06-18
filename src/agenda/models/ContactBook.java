@@ -1,53 +1,75 @@
 package agenda.models;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Set;
 
+public class ContactBook {
+    private static final int MAX_CONTACTS = 10;
+    private ArrayList<Contact> contacts;
 
-    public class ContactBook {
-        private Set<agenda.Contact> contacts;
-        private final int MAX_CONTACTS = 10;
+    public ContactBook() {
+        this.contacts = new ArrayList<>(MAX_CONTACTS);
+    }
 
-        public ContactBook() {
-            contacts = new HashSet<>();
+    // Método para agregar contacto
+    public void addContact(Contact contact) {
+        Scanner scanner = new Scanner(System.in);
+        if (agendaFull()) {
+            System.out.println("La agenda está llena, no se puede añadir más contactos.");
         }
 
-        // Método para agregar contacto
-        public void addContact() {
-            if (contacts.size() < MAX_CONTACTS) {
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Ingrese el nombre del contacto: ");
-                String name = scanner.nextLine().trim();
+        System.out.print("Ingrese el nombre del contacto: ");
+        String name = scanner.nextLine().trim();
+        if (equals(name)) {
+            System.out.println("El contacto ya existe en la agenda.");
+            return;
+        }
 
-                System.out.print("Ingrese el número de teléfono: ");
-                int phone = scanner.nextInt();
-                scanner.nextLine(); // Consumir el salto de línea después de nextInt()
+        System.out.print("Ingrese el número de teléfono: ");
+        String phone = scanner.nextLine().trim();
 
-                agenda.Contact newContact = new agenda.Contact(name, phone);
+        Contact newContact = new Contact(name, phone);
+        contacts.add(newContact);
+        System.out.println("Contacto agregado con éxito.");
+    }
 
-                if (contacts.contains(newContact)) {
-                    System.out.println("El contacto ya existe en la agenda.");
-                } else {
-                    contacts.add(newContact);
-                    System.out.println("Contacto agregado con éxito.");
-                }
+    public boolean equals(String name) {
+        for (Contact contact : contacts) {
+            if (contact.getName().equalsIgnoreCase(name)) {
+                return true;
             }
         }
+        return false;
+    }
 
-        // Método para verificar si el contacto existe
-        public boolean hasContact(Contact contact) {
-            return contacts.contains(contact);
-        }
-
+    // Método de verificar si la agenda esta full.
+    public boolean agendaFull() {
+        return contacts.size() >= MAX_CONTACTS;
+    }
 
     // Método de listar contactos
-//    public void listContact() {
-//        for (Contact contact : contacts){
-//            System.out.println(contact);
-//        }
+    public void listContact() {
+        if (contacts.isEmpty()) {
+            System.out.println("La agenda está vacía.");
+        } else {
+            for (Contact contact : contacts) {
+                System.out.println(contact);
+            }
+        }
+    }
+
+}
+
+
+//// Método para verificar si el contacto existe
+//public static boolean hasContact(String name) {
+//    for (contact:
+//         contacts) {
+//        contact.getName
 //    }
-    // Método de buscar contactos
+//}
+
+//    // Método de buscar contactos
 //    public void findContact(String name) {
 //        Contact existe = null;
 //        for (Contact contact : contacts) {
@@ -61,4 +83,19 @@ import java.util.Set;
 //            System.out.println("El contacto: " + name + " no existe.");
 //        }
 //    }
-}
+//
+//    public void removeContact(String name) {
+//        Contact contact = findContact(name);
+//        if (contact != null) {
+//            contacts.remove(contact);
+//            System.out.println("Contacto eliminado.");
+//        } else {
+//            System.out.println("Contacto no encontrado.");
+//        }
+//    }
+//
+
+//
+//    public int freeSpace() {
+//        return maxSize - contacts.size();
+//    }
