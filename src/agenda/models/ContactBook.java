@@ -13,26 +13,16 @@ public class ContactBook {
 
     // Método para agregar contacto
     public void addContact(Contact contact) {
-        Scanner scanner = new Scanner(System.in);
         if (agendaFull()) {
             System.out.println("La agenda está llena, no se puede añadir más contactos.");
+        } else if (equals(contact.getName())) {
+            System.out.println("El contacto ya existe.");
+        } else {
+            contacts.add(contact);
+            System.out.println("Contacto añadido.");
         }
-
-        System.out.print("Ingrese el nombre del contacto: ");
-        String name = scanner.nextLine().trim();
-        if (equals(name)) {
-            System.out.println("El contacto ya existe en la agenda.");
-            return;
-        }
-
-        System.out.print("Ingrese el número de teléfono: ");
-        String phone = scanner.nextLine().trim();
-
-        Contact newContact = new Contact(name, phone);
-        contacts.add(newContact);
-        System.out.println("Contacto agregado con éxito.");
     }
-
+    // Verifica la existencia del contacntio
     public boolean equals(String name) {
         for (Contact contact : contacts) {
             if (contact.getName().equalsIgnoreCase(name)) {
@@ -57,7 +47,6 @@ public class ContactBook {
             }
         }
     }
-
 }
 
 

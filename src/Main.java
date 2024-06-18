@@ -5,10 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ContactBook agenda = new ContactBook();
-        Contact contact1 = new Contact("Maria", "3003003030");
-        agenda.addContact(contact1);
-        agenda.listContact();
 //        Scanner scanner = new Scanner(System.in);
 //        boolean exit = false;
 //
@@ -32,12 +28,20 @@ public class Main {
 //
 //            switch (option) {
 //                case 1:
+//                    System.out.println("Ingrese el nombre del contacto:");
+//                    String name = scanner.nextLine();
+//                    System.out.println("Ingrese el número de teléfono:");
+//                    String phoneNumber = scanner.nextLine();
+//                    Contact contact = new Contact(name, phoneNumber, email);
 //                    agenda.addContact(contact);
 //                    break;
 //                case 2:
 //                    agenda.listContacts();
 //                    break;
 //                case 3:
+//                    System.out.println("Ingrese el nombre del contacto a buscar:");
+//                    String searchName = scanner.nextLine();
+//                    Contact foundContact = agenda.findContact(searchName);
 //                    if (foundContact != null) {
 //                        System.out.println("Contacto encontrado: " + foundContact);
 //                    } else {
@@ -45,6 +49,8 @@ public class Main {
 //                    }
 //                    break;
 //                case 4:
+//                    System.out.println("Ingrese el nombre del contacto a eliminar:");
+//                    String deleteName = scanner.nextLine();
 //                    agenda.removeContact(deleteName);
 //                    break;
 //                case 5:
