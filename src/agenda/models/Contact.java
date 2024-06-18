@@ -12,7 +12,6 @@ public class Contact {
         this.phone = phone;
     }
 
-    // Getters y setters
     public String getName() {
         return name;
     }
@@ -31,8 +30,8 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", phone=" + phone +
-                '}';
+        return "Nombre: '" + name + "', Teléfono: " + phone;
     }
+
+
 }
