@@ -24,4 +24,21 @@ public class Contact {
         this.phone = phone;
     }
 
+    //    public void removeContact(String name) {
+//        Contact contact = findContact(name);
+//        if (contact != null) {
+//            contacts.remove(contact);
+//            System.out.println("Contacto eliminado.");
+//        } else {
+//            System.out.println("Contacto no encontrado.");
+//        }
+//    }
+//
+//    public boolean agendaFull() {
+//        return contacts.size() >= maxSize;
+//    }
+//
+//    public int freeSpace() {
+//        return maxSize - contacts.size();
+//    }
 }
